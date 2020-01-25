@@ -1,0 +1,48 @@
+version: ~> 1.0
+
+os:
+  - linux
+
+language: node_js
+
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+    - ~/.sonar/cache
+
+addons:
+  sonarcloud:
+    organization: "javierbrea"
+    branch:
+      name: "$TRAVIS_CURRENT_BRANCH"
+
+node_js:
+  - "v12.14.1"
+  - "v10.18.1"
+
+script:
+  - npm run lint
+  - npm run test:ci
+  - npm run coveralls
+
+jobs:
+  include:
+    - stage: sonar
+      script:
+        - npm run test:ci
+        - sonar-scanner -Dsonar.login=${SONAR_TOKEN};
+      if: env(SONAR_TOKEN) IS present
+    - stage: deploy
+      script:
+        - echo "Deploying"
+      deploy:
+        provider: npm
+        edge: true
+        email: "javier.brea@gmail.com"
+        api_key: "$NPM_TOKEN"
+        on:
+          tags: true
+        skip_cleanup: true
+  allow_failures:
+    - name: sonar

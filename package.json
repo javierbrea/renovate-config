@@ -1,0 +1,9 @@
+{
+  "name": "javierbrea/nodejs-ci-cd-shared-config",
+  "private": true,
+  "scripts": {
+    "test:ci": "echo \"test:ci OK\"",
+    "lint": "echo \"lint OK\"",
+    "coveralls": "echo \"coveralls OK\""
+  }
+}

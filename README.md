@@ -1,2 +1,3 @@
 # nodejs-cicd-shared-config
-Nodejs projects ci-cd shared config
+
+Shared configuration for Nodejs projects ci/cd tasks.
