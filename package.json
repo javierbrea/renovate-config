@@ -1,5 +1,5 @@
 {
-  "name": "javierbrea/nodejs-ci-cd-shared-config",
+  "name": "@javierbrea/nodejs-ci-cd-shared-config",
   "private": true,
   "scripts": {
     "test:ci": "echo \"test:ci OK\"",
