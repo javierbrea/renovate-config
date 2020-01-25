@@ -18,7 +18,7 @@
   "travis": { "enabled": true },
   "packageRules": [
     {
-      "depTypeList": ["devDependencies", "engines"],
+      "depTypeList": ["peerDependencies", "engines"],
       "rangeStrategy": "widen"
     }
   ],
