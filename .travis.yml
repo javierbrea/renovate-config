@@ -31,7 +31,7 @@ jobs:
   include:
     - stage: sonar
       script:
-        - npm run test:ci
+        - npm run test:coverage
         - sonar-scanner -Dsonar.login=${SONAR_TOKEN};
       if: env(SONAR_TOKEN) IS present
     - stage: deploy
