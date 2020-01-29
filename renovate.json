@@ -8,7 +8,7 @@
     "automerge": false
   },
   "minor": {
-    "automerge": false
+    "automerge": true
   },
   "separateMultipleMajor": true,
   "rangeStrategy": "pin",
@@ -26,8 +26,13 @@
     "dependencies",
     "renovate"
   ],
-  "prHourlyLimit": 2,
-  "prConcurrentLimit": 5,
+  "prCreation": "not-pending",
+  "stabilityDays": 3,
+  "prHourlyLimit": 5,
+  "prConcurrentLimit": 2,
   "rebaseStalePrs": true,
+  "timezone": "Europe/Madrid",
+  "schedule": ["after 9pm and before 5pm on every weekday"],
   "masterIssue": true
 }
+
