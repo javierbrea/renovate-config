@@ -30,6 +30,7 @@ script:
 jobs:
   include:
     - stage: sonar
+      env: ALLOW_FAIL=1
       script:
         - npm run test:coverage
         - sonar-scanner -Dsonar.login=${SONAR_TOKEN};
@@ -46,4 +47,4 @@ jobs:
           tags: true
         skip_cleanup: true
   allow_failures:
-    - name: sonar
+    - env: ALLOW_FAIL=1
