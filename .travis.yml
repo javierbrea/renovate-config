@@ -20,7 +20,7 @@ addons:
 node_js:
   - "v10.19.0"
   - "v12.16.1"
-  - "v13.9.0"
+  - "v13.11.0"
 
 script:
   - npm run lint
