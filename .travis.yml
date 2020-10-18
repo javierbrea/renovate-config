@@ -18,8 +18,8 @@ addons:
       name: "$TRAVIS_CURRENT_BRANCH"
 
 node_js:
-  - "v12.18.3"
-  - "v14.8.0"
+  - "v12.19.0"
+  - "v14.14.0"
 
 script:
   - npm run lint
