@@ -18,7 +18,6 @@ addons:
       name: "$TRAVIS_CURRENT_BRANCH"
 
 node_js:
-  - "v12.19.0"
   - "v14.14.0"
 
 script:
