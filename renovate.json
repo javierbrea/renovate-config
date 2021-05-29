@@ -22,7 +22,7 @@
       "rangeStrategy": "widen"
     },
     {
-      "packageNames": ["coveralls"],
+      "packageNames": ["strip-ansi"],
       "enabled": false
     }
   ],
