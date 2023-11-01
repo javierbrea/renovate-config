@@ -1,4 +1,5 @@
 {
+  "description": "Set release as base branch. Merge minor and patch updates automatically. Avoid upgrading ESM packages. Run every weekday after 9pm and before 5pm. Merge up to 5 PRs per hour and 2 concurrently.",
   "extends": [
     "config:base"
   ],
