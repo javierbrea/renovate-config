@@ -1,15 +1,16 @@
 # Renovate base configuration for @javierbrea repositories
 
-This repository contains the [config presets for renovate bot](https://docs.renovatebot.com/config-presets/) in all @javierbrea repositories.
+Shared [Renovate config presets](https://docs.renovatebot.com/config-presets/) used across
+@javierbrea repositories.
 
-## Presets description
+## Presets
 
-* Set `release` as base branch.
-* Merge minor and patch updates automatically.
-* Avoid upgrading ESM packages.
-* Run every weekday after 9pm and before 5pm.
-* Merge up to 5 PRs per hour and 2 concurrently.
+### `default`
 
-## Config file
+Defined in [`./default.json`](./default.json).
 
-Config presets default file is at: [./default.json](./default.json)
+* Sets `release` as the base branch.
+* Automerges minor and patch updates; major updates are left for manual review.
+* Pins `strip-ansi` to avoid its ESM-only release.
+* Runs on weekday nights (after 9pm and before 5pm).
+* Merges up to 5 PRs per hour and 2 concurrently.
