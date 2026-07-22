@@ -1,17 +1,11 @@
 {
-  "description": "Sets release as the base branch. Automerges minor and patch updates, keeping major updates for manual review. Pins strip-ansi to avoid its ESM-only release. Runs on weekday nights. Merges up to 5 PRs per hour and 2 concurrently.",
+  "description": "Sets release as the base branch. Groups all minor updates into one PR and all patch updates into another; major updates are separate, one PR each. Pins strip-ansi to avoid its ESM-only release. Holds updates until 3 days after release. No time-of-day schedule. Up to 2 open PRs and 4 branches at once. No automerge - all PRs are left for manual review.",
   "extends": [
     "config:recommended"
   ],
   "baseBranchPatterns": ["release"],
-  "automerge": true,
-  "major": {
-    "automerge": false
-  },
-  "minor": {
-    "automerge": true
-  },
   "separateMultipleMajor": true,
+  "separateMinorPatch": true,
   "rangeStrategy": "pin",
   "packageRules": [
     {
@@ -21,19 +15,26 @@
     {
       "matchPackageNames": ["strip-ansi"],
       "enabled": false
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "groupName": "all minor dependencies",
+      "groupSlug": "all-minor"
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "groupName": "all patch dependencies",
+      "groupSlug": "all-patch"
     }
   ],
   "labels": [
     "dependencies",
     "renovate"
   ],
-  "prCreation": "not-pending",
   "minimumReleaseAge": "3 days",
   "prHourlyLimit": 5,
   "prConcurrentLimit": 2,
+  "branchConcurrentLimit": 4,
   "rebaseWhen": "behind-base-branch",
-  "timezone": "Europe/Madrid",
-  "schedule": ["* 21-23 * * 1-5", "* 0-16 * * 1-5"],
   "dependencyDashboard": true
 }
-
